@@ -3,7 +3,6 @@ package com.example.cbrapp.data
 import com.google.gson.annotations.SerializedName
 
 data class Valute (
-
     @SerializedName("AUD" ) var AUD : Currency? = Currency(),
     @SerializedName("AZN" ) var AZN : Currency? = Currency(),
     @SerializedName("GBP" ) var GBP : Currency? = Currency(),
@@ -38,5 +37,44 @@ data class Valute (
     @SerializedName("ZAR" ) var ZAR : Currency? = Currency(),
     @SerializedName("KRW" ) var KRW : Currency? = Currency(),
     @SerializedName("JPY" ) var JPY : Currency? = Currency()
+){
+    fun getListCurrency():List<Currency>{
+        var listCurrency = mutableListOf<Currency>()
+        AUD?.let { listCurrency.add(it) }
+        AZN?.let { listCurrency.add(it) }
+        GBP?.let { listCurrency.add(it) }
+        AMD?.let { listCurrency.add(it) }
+        BYN?.let { listCurrency.add(it) }
+        BGN?.let { listCurrency.add(it) }
+        BRL?.let { listCurrency.add(it) }
+        HUF?.let { listCurrency.add(it) }
+        HKD?.let { listCurrency.add(it) }
+        DKK?.let { listCurrency.add(it) }
+        USD?.let { listCurrency.add(it) }
+        EUR?.let { listCurrency.add(it) }
+        INR?.let { listCurrency.add(it) }
+        KZT?.let { listCurrency.add(it) }
+        CAD?.let { listCurrency.add(it) }
+        KGS?.let { listCurrency.add(it) }
+        CNY?.let { listCurrency.add(it) }
+        MDL?.let { listCurrency.add(it) }
+        NOK?.let { listCurrency.add(it) }
+        PLN?.let { listCurrency.add(it) }
+        RON?.let { listCurrency.add(it) }
+        XDR?.let { listCurrency.add(it) }
+        SGD?.let { listCurrency.add(it) }
+        TJS?.let { listCurrency.add(it) }
+        TRY?.let { listCurrency.add(it) }
+        TMT?.let { listCurrency.add(it) }
+        UZS?.let { listCurrency.add(it) }
+        UAH?.let { listCurrency.add(it) }
+        CZK?.let { listCurrency.add(it) }
+        SEK?.let { listCurrency.add(it) }
+        CHF?.let { listCurrency.add(it) }
+        ZAR?.let { listCurrency.add(it) }
+        KRW?.let { listCurrency.add(it) }
+        JPY?.let { listCurrency.add(it) }
 
-)
+        return listCurrency
+    }
+}
