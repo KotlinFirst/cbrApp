@@ -24,13 +24,15 @@ class CurrencyViewModel(application: Application) : AndroidViewModel(application
 
     private fun loadData() {
         val disposable = ApiFactory.apiService.getValute()
-            .map { it.Valute }
-            .delaySubscription(10,TimeUnit.SECONDS)
+            .map { it.Valute?.getListCurrency() }
+            .delaySubscription(10, TimeUnit.SECONDS)
             .repeat() //выполнит загрузку заново в случае успеха
             .retry() //выполнит загрузку заново в случае НЕ успеха
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                if (it != null) {
+                    db.currencyInfoDao().insertCurrencyList(it)
+                }
                 Log.d("TEST_OF_LOADING_DATA", it.toString())
             }, {
                 Log.d("TEST_OF_LOADING_DATA", it.message.toString())
